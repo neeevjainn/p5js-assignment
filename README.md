@@ -11,7 +11,7 @@ This repository contains two modified p5.js sketches, duplicated from the p5.js 
 **Original Sketch Name:** Snake game
 
 **Modifications:**
-* **Controls:** Shifted from IJKL to **W, A, S, D** for standard gaming controls.
+* **Controls:** **W, A, S, D** for standard gaming controls.
 * **Graphics:** Implemented a detailed **brick wall** boundary texture. The snake is drawn as clear circles, and food has a pulsing effect.
 * **Gameplay:** Added a **Bonus Fruit** that appears every 10 points, offering +5 score and +5 segments, but lasts only 6 seconds, creating a strategic challenge.
 * **Feedback:** Incorporated a **particle celebration effect** whenever food is eaten.
