@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Arcade Portfolio</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        :root {
+            --arcade-red: #ff3366;
+            --arcade-blue: #33ccff;
+            --arcade-green: #33ff99;
+            --dark-bg: #1a1a2e;
+            --light-text: #ffffff;
+        }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at center, rgba(51, 51, 85, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px; /* Subtle grid/scanline effect */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 4px 4px 0 var(--arcade-red);
+            color: var(--arcade-blue);
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        .arcade-cabinet {
+            background: #2a2a4e;
+            border: 10px solid var(--arcade-red);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(51, 204, 255, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .game-link {
+            display: block;
+            background: var(--dark-bg);
+            border: 3px solid var(--arcade-green);
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--arcade-green);
+            font-size: 1em;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 0 var(--arcade-green); /* Button-press shadow */
+            position: relative;
+            z-index: 1;
+        }
+
+        .game-link:hover {
+            background: rgba(51, 255, 153, 0.1);
+            color: var(--light-text);
+            box-shadow: 0 6px 0 var(--arcade-blue);
+            transform: translateY(-2px);
+        }
+
+        .game-link:active {
+            box-shadow: 0 2px 0 var(--arcade-green);
+            transform: translateY(2px);
+        }
+
+        /* 📺 Scanline Effect Overlay */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+        }
+
+        /* 🌟 Animation Keyframes */
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { text-shadow: 4px 4px 0 var(--arcade-red); }
+            20%, 24%, 55% { text-shadow: 4px 4px 5px var(--arcade-blue); color: var(--arcade-red); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scanlines"></div>
+
+    <div class="header">
+        <h1>P5.JS CABINET</h1>
+        <p>CHOOSE YOUR GAME</p>
+    </div>
+
+    <div class="arcade-cabinet">
+        <a href="snake-game/index.html" class="game-link">
+            GAME 01: S N A K E
+        </a>
+
+        <a href="blackjack-game/index.html" class="game-link">
+            GAME 02: B L A C K J A C K
+        </a>
+
+         <a href="pingpong-game/index.html" class="game-link">
+            GAME 03: P I N G P O N G
+        </a>
